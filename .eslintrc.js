@@ -22,7 +22,7 @@ module.exports = {
     'react/jsx-filename-extension': 0,
     'react/react-in-jsx-scope': 'off',
     'react/state-in-constructor': 0,
-
+    'react/forbid-prop-types': 0,
     'no-multiple-empty-lines': [2, { max: 99999, maxEOF: 0 }],
   },
 };
