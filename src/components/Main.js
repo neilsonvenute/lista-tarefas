@@ -15,7 +15,6 @@ export default class Main extends Component {
     });
   };
 
-  // eslint-disable-next-line class-methods-use-this
   handleSubmit = (e) => {
     e.preventDefault();
     const { tarefas } = this.state;
@@ -26,6 +25,20 @@ export default class Main extends Component {
     const novasTarefas = [...tarefas];
     this.setState({
       tarefas: [...novasTarefas, novaTarefa],
+    });
+  };
+
+  handleEdit = (e, index) => {
+
+  };
+
+  handleDelete = (e, index) => {
+    const { tarefas } = this.state;
+    const novasTarefas = [...tarefas];
+
+    novasTarefas.splice(index, 1);
+    this.setState({
+      tarefas: [...novasTarefas],
     });
   };
 
@@ -46,12 +59,18 @@ export default class Main extends Component {
         </form>
 
         <ul className="tarefas">
-          {tarefas.map((tarefa) => (
+          {tarefas.map((tarefa, index) => (
             <li key={tarefa}>
               {tarefa}
               <span>
-                <FaEdit className="edit" />
-                <FaWindowClose className="delete" />
+                <FaEdit
+                  onClick={(e) => this.handleEdit(e, index)}
+                  className="edit"
+                />
+                <FaWindowClose
+                  onClick={(e) => this.handleDelete(e, index)}
+                  className="delete"
+                />
               </span>
             </li>
           ))}
