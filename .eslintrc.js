@@ -24,6 +24,5 @@ module.exports = {
     'react/state-in-constructor': 0,
 
     'no-multiple-empty-lines': [2, { max: 99999, maxEOF: 0 }],
-    'trailing-comma': false,
   },
 };
